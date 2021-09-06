@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +41,7 @@ class PostController extends Controller
     {
         Validator::validate($request->all(),
         [
-            'categorie'=>'required',
+            'categorie_id'=>'required',
             'post'=>'required|unique:posts,post'
         ]);
         $data = $request->all();
@@ -83,7 +84,7 @@ class PostController extends Controller
     {
         Validator::validate($request->all(),
         [
-            'categorie'=>'required',
+            'categorie_id'=>'required',
             'post'=>'required'
         ]);
         if($post->update($request->only(['categorie','post']))) {
@@ -110,14 +111,14 @@ class PostController extends Controller
     public function loadPosts($categorie=null) {
         $paginationSize = 10;
         if(isset($categorie)) {
-            $posts= DB::table('posts')->where('categorie','=',$categorie)->orderby('created_at','DESC')->paginate($paginationSize);
+            $posts = Post::with(['categorie','user'])->where('categorie_id',$categorie)->orderby('created_at','DESC')->paginate($paginationSize);
         } else {
-            $posts = DB::table('posts')->orderby('created_at','DESC')->paginate($paginationSize);
+            $posts = Post::with(['user','categorie'])->orderby('created_at','DESC')->paginate($paginationSize);
         }
         return $posts;
     }
 
     public function loadUserPosts() {
-        return Auth::user()->posts;
+        return Post::with(['categorie'])->where('user_id',Auth::user()->id)->orderby('created_at','desc')->get();
     }
 }

@@ -31,10 +31,10 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="categorie">
                                     <label for="categorie-mbr-popup-19"
                                         class="form-control-label mbr-fonts-style display-7"><strong>Catégorie</strong></label>
-                                    <select ng-model="post.categorie" name="categorie" data-form-field="categorie"
+                                    <select ng-model="post.categorie_id" name="categorie_id" data-form-field="categorie"
                                         class="form-control display-7" id="categorie-mbr-popup-19">
                                         <option value="">---Selectionner une valeur---</option>
-                                        <option ng-repeat="categorie in categories" ng-value="categorie.nom">
+                                        <option ng-repeat="categorie in categories" ng-value="categorie.id">
                                             [[categorie.nom]]</option>
                                     </select>
                                 </div>

@@ -12,7 +12,7 @@ class Post extends Model
 
     protected $fillable = [
         'post',
-        'categorie',
+        'categorie_id',
         'visible',
         'user_id'
     ];
@@ -25,5 +25,10 @@ class Post extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function categorie(): BelongsTo
+    {
+        return $this->belongsTo(Categorie::class);
     }
 }

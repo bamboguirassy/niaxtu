@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="image-wrapper">
-                        <img src="assets/images/administration.jpg" alt="">
+                        <img src="/assets/images/categories/[[post.categorie.image]]" alt="[[post.categorie.nom]]">
                     </div>
                 </div>
             </div>
@@ -109,11 +109,11 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="categorie">
                                         <label for="categorie-mbr-popup-1u"
                                             class="form-control-label mbr-fonts-style display-7"><strong>Catégorie</strong></label>
-                                        <select ng-model="selectedPost.categorie" name="categorie"
+                                        <select ng-model="selectedPost.categorie_id" name="categorie_id"
                                             data-form-field="categorie" class="form-control display-7"
                                             id="categorie-mbr-popup-1u">
                                             <option value="">---Selectionner une valeur---</option>
-                                            <option ng-selected="selectedPost.categorie==categorie.nom" ng-repeat="categorie in categories" ng-value="categorie.nom">
+                                            <option ng-selected="selectedPost.categorie_id==categorie.id" ng-repeat="categorie in categories" ng-value="categorie.nom">
                                                 [[categorie.nom]]</option>
                                         </select>
                                     </div>

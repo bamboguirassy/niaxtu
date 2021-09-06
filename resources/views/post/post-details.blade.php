@@ -4,20 +4,11 @@
 
 @section('body')
 <section data-bs-version="5.1" class="info3 cid-sI5NCv6udu" id="info3-1q">
-
-
-
-
-
-    <div class="container">
+<div class="container">
         <div class="row justify-content-center">
             <div class="card col-12 col-lg-10">
                 <div class="card-wrapper">
-                    <div class="card-box align-center">
-
-
-
-                    </div>
+                    <div class="card-box align-center"></div>
                 </div>
             </div>
         </div>
@@ -25,25 +16,18 @@
 </section>
 
 <section data-bs-version="5.1" class="content3 personam4_content3 cid-sI5Mq5Rfkf" id="content03-1m">
-
-
-
-    <div class="container">
+<div class="container">
         <div class="row">
-            <div class="col-lg-6 py-4 align-right">
-
-
-                <p class="mbr-text pb-2 align-right mbr-fonts-style display-4">
-                    
-                    {{$post->post}}</p>
-
-                <div class="sig-img">
-                    <img src="{{ asset('assets/images/signature.png') }}" alt="">
-                </div>
-            </div>
             <div class="col-lg-6">
                 <div class="card-img">
-                    <img src="{{ asset('assets/images/administration.jpg') }}" alt="">
+                    <img src="{{ asset('assets/images/categories/'.$post->categorie->image) }}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 py-4 align-right">
+                <p class="mbr-text pb-2 align-right mbr-fonts-style display-4">
+                    {{$post->post}}</p>
+                <div class="sig-img">
+                    <img src="{{ asset('assets/images/signature.png') }}" alt="">
                 </div>
             </div>
         </div>

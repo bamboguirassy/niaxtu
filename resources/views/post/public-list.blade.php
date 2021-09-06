@@ -14,8 +14,8 @@
                                             <a ng-click="load('')">Tout</a>
                                         </li>
                                         <li class="separator">/</li>
-                                        <li ng-click="load(categorie.nom)" ng-repeat-start="categorie in categories"
-                                            class="categorie-item"  ng-class="{active:selectedCategorie==categorie.nom}">
+                                        <li ng-click="load(categorie.id)" ng-repeat-start="categorie in categories"
+                                            class="categorie-item"  ng-class="{active:selectedCategorie==categorie.id}">
                                             <a>[[categorie.nom]]</a>
                                         </li>
                                         <li ng-if="!$last" ng-repeat-end class="separator">/</li>
@@ -55,7 +55,7 @@
                     <div class="row align-items-center">
                         <div class="col-12 col-md-3">
                             <div class="image-wrapper">
-                                <img src="assets/images/logo-societe.png" alt="">
+                                <img ng-src="/assets/images/categories/[[post.categorie.image]]" alt="[[post.categorie.nom]] image">
                             </div>
                         </div>
                         <div class="col-12 col-md">
@@ -64,7 +64,7 @@
                                     <div class="col-md">
 
                                         <p class="mbr-text mbr-fonts-style display-7">
-                                            [[post.post|truncate:200:'...']]
+                                            [[post.post|truncate:300:'...']]
                                         </p>
                                     </div>
                                     <div class="col-md-auto">
