@@ -2,6 +2,10 @@
 
 @section('title',"Guide d'utilisation")
 
+@section('twitter-title',"Comment publier un récit sur Niaxtu ?")
+
+@section('description',"Comment publier un récit sur Niaxtu ?")
+
 @section('body')
 
 <section data-bs-version="5.1" class="headers1 cid-sI49DO5J0K" id="header01-m">

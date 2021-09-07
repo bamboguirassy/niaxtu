@@ -2,6 +2,14 @@
 
 @section('title','Mon compte')
 
+@section('twitter-title',"Ceci est votre compte personnel.
+Vous pouvez mettre à jour vos informations ou mettre à jour votre mot de passe de connexion.
+Si vous décidez d'être invisible, votre nom n'apparaitra pas sur vos publications ou sur vos commentaires.")
+
+@section('description',"Ceci est votre compte personnel.
+Vous pouvez mettre à jour vos informations ou mettre à jour votre mot de passe de connexion.
+Si vous décidez d'être invisible, votre nom n'apparaitra pas sur vos publications ou sur vos commentaires.")
+
 @section('body')
 <section data-bs-version="5.1" class="content4 cid-sI4cXc4OVT" id="extContacts4-p">
     <div class="container">
@@ -22,6 +30,19 @@
                     <strong>DATE
                         inscription:</strong>&nbsp;{{date_format(auth()->user()->created_at,'d M Y à H:i')}}<br>
                 </p>
+            </div>
+            <div class="col-12">
+
+                <div class="form-row">
+                    @foreach ($errors->all() as $message)
+                    <div data-form-alert="" class="alert alert-danger col-12">{{$message}}</div>
+                    @endforeach
+                </div>
+                @if (Session::has('error'))
+                <div data-form-alert-danger="" class="alert alert-danger col-12">
+                    {{Session::get('error')}}
+                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -89,16 +110,6 @@
                     data-form-title="passwordEdit">
                     @method('put')
                     @csrf
-                    <div class="form-row">
-                        @foreach ($errors->all() as $message)
-                        <div data-form-alert="" class="alert alert-danger col-12">{{$message}}</div>
-                        @endforeach
-                    </div>
-                    @if (Session::has('error'))
-                    <div data-form-alert-danger="" class="alert alert-danger col-12">
-                        {{Session::get('error')}}
-                    </div>
-                    @endif
                     <div class="dragArea form-row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <h4 class="mbr-fonts-style display-2">Changer le mot de passe</h4>

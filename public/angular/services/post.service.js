@@ -14,6 +14,15 @@ app.factory('PostService', ($http) => {
         },
         update: (post) => {
             return $http.put(`/post/${post.id}`, post);
+        },
+        findOneById: id => {
+            return $http.get(`/posts/${id}`);
+        },
+        like: id => {
+            return $http.post(`/like/${id}`);
+        },
+        comment: (id, comment) => {
+            return $http.post(`/comment/${id}`, comment);
         }
     };
 })

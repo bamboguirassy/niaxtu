@@ -31,4 +31,16 @@ class Post extends Model
     {
         return $this->belongsTo(Categorie::class);
     }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+    
+    public function clicks() {
+        return $this->hasMany(Click::class);
+    }
+    
+    public function likes() {
+        return $this->hasMany(Like::class);
+    }
 }

@@ -2,6 +2,14 @@
 
 @section('title','Accueil')
 
+@section('twitter-title',"Votre plateforme de publication des faits marquants qui gangrènent la société. Nous collectons
+l'ensemble des avis et témoignages sur les magouilles, les manipulations, la manière dont les choses sont gérées au
+Sénégal. ")
+
+@section('description',"Votre plateforme de publication des faits marquants qui gangrènent la société. Nous collectons
+l'ensemble des avis et témoignages sur les magouilles, les manipulations, la manière dont les choses sont gérées au
+Sénégal. ")
+
 @section('body')
 <section data-bs-version="5.1" class="header3 cid-sI3Qkybtw1" id="header03-5" data-sortbtn="btn-primary">
     <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(21, 116, 187);"></div>

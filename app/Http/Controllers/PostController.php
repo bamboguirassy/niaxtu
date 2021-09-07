@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Click;
 use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -59,6 +58,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $click = new Click();
+        $click->post_id = $post->id;
+        if(!Auth::guest()) {
+            $click->user_id = Auth::user()->id;
+        }
+        $click->save();
+        $post = Post::with(['categorie','user','comments'])->withCount(['clicks','likes','comments'])->find($post->id);
         return view('post.post-details',compact('post'));
     }
 
@@ -111,14 +117,19 @@ class PostController extends Controller
     public function loadPosts($categorie=null) {
         $paginationSize = 10;
         if(isset($categorie)) {
-            $posts = Post::with(['categorie','user'])->where('categorie_id',$categorie)->orderby('created_at','DESC')->paginate($paginationSize);
+            $posts = Post::with(['categorie','user'])->where('categorie_id',$categorie)->orderby('created_at','DESC')->withCount(['clicks','comments','likes'])->paginate($paginationSize);
         } else {
-            $posts = Post::with(['user','categorie'])->orderby('created_at','DESC')->paginate($paginationSize);
+            $posts = Post::with(['user','categorie'])->withCount(['clicks','comments','likes'])->orderby('created_at','DESC')->paginate($paginationSize);
         }
         return $posts;
     }
 
     public function loadUserPosts() {
-        return Post::with(['categorie'])->where('user_id',Auth::user()->id)->orderby('created_at','desc')->get();
+        return Post::with(['categorie','comments'])->withCount(['clicks','comments','likes'])->where('user_id',Auth::user()->id)->orderby('created_at','desc')->get();
+    }
+
+    public function findOneById($id) {
+        $post = Post::with(['categorie','user','comments'])->withCount(['clicks','likes','comments'])->find($id);
+        return $post;
     }
 }

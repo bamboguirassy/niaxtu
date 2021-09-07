@@ -10,13 +10,13 @@
                             <div class="row">
                                 <div class="col-12">
                                     <ul class="categorie-list">
-                                        <li class="categorie-item" ng-class="{active:selectedCategorie==''}">
+                                        <li ng-class="{'categorie-item':true,active:selectedCategorie==''}">
                                             <a ng-click="load('')">Tout</a>
                                         </li>
                                         <li class="separator">/</li>
                                         <li ng-click="load(categorie.id)" ng-repeat-start="categorie in categories"
-                                            class="categorie-item"  ng-class="{active:selectedCategorie==categorie.id}">
-                                            <a>[[categorie.nom]]</a>
+                                            ng-class="{'categorie-item':true,active:selectedCategorie==categorie.id}">
+                                            <a><b>[[categorie.nom]]</b></a>
                                         </li>
                                         <li ng-if="!$last" ng-repeat-end class="separator">/</li>
                                     </ul>
@@ -55,25 +55,41 @@
                     <div class="row align-items-center">
                         <div class="col-12 col-md-3">
                             <div class="image-wrapper">
-                                <img ng-src="/assets/images/categories/[[post.categorie.image]]" alt="[[post.categorie.nom]] image">
+                                <img ng-src="/assets/images/categories/[[post.categorie.image]]"
+                                    alt="[[post.categorie.nom]] image">
                             </div>
                         </div>
                         <div class="col-12 col-md">
                             <div class="card-box">
                                 <div class="row">
                                     <div class="col-md">
-
                                         <p class="mbr-text mbr-fonts-style display-7">
-                                            [[post.post|truncate:300:'...']]
+                                            [[post.post|truncate:150:'...']] <br>
+                                            <span style="font-size: 13px; font-weight: bold; color: #1574bb;">[[post.created_at|date:'dd MMM yyyy - HH:mm']] <span style="color: #E87C2B">par <b>anonyme</b></span></span>
                                         </p>
+                                        <ul>
+                                            <li style="display: inline">
+                                                [[post.likes_count]] <i
+                                                    class="mobi-mbri mobi-mbri-hearth mbr-iconfont"></i> &nbsp; &nbsp;
+                                            </li>
+                                            <li style="display: inline">
+                                                [[post.comments_count]] <i
+                                                    class="mobi-mbri mobi-mbri-chat mbr-iconfont"></i> &nbsp; &nbsp;
+                                            </li>
+                                            <li style="display: inline">
+                                                [[post.clicks_count]] <i
+                                                    class="mobi-mbri mobi-mbri-cursor-click mbr-iconfont"></i>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <div class="col-md-auto">
-
-                                        <div class="mbr-section-btn"><a
-                                                href="/post/[[post.id]]"
-                                                class="btn btn-primary display-4"><span
-                                                    class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont mbr-iconfont-btn"></span>
-                                                Lire plus</a></div>
+                                        <div class="mbr-section-btn">
+                                            <a href="/post/[[post.id]]" class="btn btn-primary display-4">
+                                                <span class="mobi-mbri mobi-mbri-heart mbr-iconfont">
+                                                </span>
+                                                Lire plus
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -96,8 +112,9 @@
             </div>
         </div>
     </section>
-    
-    <section ng-if="pagination.next_page_url!=null" data-bs-version="5.1" class="content3 cid-sI45dTeoFu" id="article03-f" data-sortbtn="btn-primary">
+
+    <section ng-if="pagination.next_page_url!=null" data-bs-version="5.1" class="content3 cid-sI45dTeoFu"
+        id="article03-f" data-sortbtn="btn-primary">
         <div class="container">
             <div class="row">
                 <div class="title col-md-12 col-lg-12">

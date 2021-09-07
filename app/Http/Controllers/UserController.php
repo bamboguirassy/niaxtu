@@ -86,7 +86,8 @@ class UserController extends Controller
     {
         Validator::validate($request->except('email'),
         [
-            'name'=>'required|min:3'
+            'name'=>'required|min:3',
+            'profession'=>'required'
             ]
         );
         $user = User::find($id);

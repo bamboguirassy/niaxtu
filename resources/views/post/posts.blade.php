@@ -2,14 +2,18 @@
 
 @section('title','Mes publication')
 
+@section('twitter-title',"Retrouvez ici la liste de toutes les publications que vous avez faites sur la plateforme.
+Vous pouvez mettre à jour certaines publications ou de les retirer définitivement.")
+
+@section('description',"Retrouvez ici la liste de toutes les publications que vous avez faites sur la plateforme.
+Vous pouvez mettre à jour certaines publications ou de les retirer définitivement.")
+
 @section('body')
 <div ng-controller="MyPostsControler">
     <section data-bs-version="5.1" class="article1 cid-sI4qNbt243" id="article01-x">
-
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12 align-left col-lg-12">
-
                     <h4 class="mbr-section-subtitle mbr-fonts-style mb-4 display-5"><strong>Toutes mes
                             publications</strong>
                     </h4>
@@ -45,16 +49,41 @@
                         <p class="mbr-text mbr-fonts-style display-7">
                             [[post.post|truncate:200:'...']]
                             &nbsp;<a href="/post/[[post.id]]" class="text-primary"><strong>Lire la
-                                    suite</strong></a><br></p>
-                        <div class="mbr-section-btn">
-                            <a class="btn btn-lg btn-danger display-4" ng-click="select(post)" data-toggle="modal"
-                                data-bs-toggle="modal" data-target="#mbr-popup-1v" data-bs-target="#mbr-popup-1v">
-                                <span class="mdi-content-remove-circle mbr-iconfont mbr-iconfont-btn"></span>Retirer
-                            </a>
-                            <a class="btn btn-lg btn-success display-4" ng-click="select(post)" data-toggle="modal"
-                                data-bs-toggle="modal" data-target="#mbr-popup-1u" data-bs-target="#mbr-popup-1u"><span
-                                    class="mbri-edit mbr-iconfont mbr-iconfont-btn"></span>Modifier
-                            </a>
+                                    suite</strong></a></p>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <ul>
+                                    <li style="display: inline">
+                                        [[post.likes_count]] <i class="mobi-mbri mobi-mbri-hearth mbr-iconfont"></i>
+                                        &nbsp;
+                                        &nbsp;
+                                    </li>
+                                    <li style="display: inline">
+                                        [[post.comments_count]] <i class="mobi-mbri mobi-mbri-chat mbr-iconfont"></i>
+                                        &nbsp;
+                                        &nbsp;
+                                    </li>
+                                    <li style="display: inline">
+                                        [[post.clicks_count]] <i
+                                            class="mobi-mbri mobi-mbri-cursor-click mbr-iconfont"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="mbr-section-btn align-right">
+                                    <a class="btn btn-md btn-danger display-4" ng-click="select(post)"
+                                        data-toggle="modal" data-bs-toggle="modal" data-target="#mbr-popup-1v"
+                                        data-bs-target="#mbr-popup-1v">
+                                        <span
+                                            class="mdi-content-remove-circle mbr-iconfont mbr-iconfont-btn"></span>Retirer
+                                    </a>
+                                    <a class="btn btn-md btn-success display-4" ng-click="select(post)"
+                                        data-toggle="modal" data-bs-toggle="modal" data-target="#mbr-popup-1u"
+                                        data-bs-target="#mbr-popup-1u"><span
+                                            class="mbri-edit mbr-iconfont mbr-iconfont-btn"></span>Modifier
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,7 +142,8 @@
                                             data-form-field="categorie" class="form-control display-7"
                                             id="categorie-mbr-popup-1u">
                                             <option value="">---Selectionner une valeur---</option>
-                                            <option ng-selected="selectedPost.categorie_id==categorie.id" ng-repeat="categorie in categories" ng-value="categorie.nom">
+                                            <option ng-selected="selectedPost.categorie_id==categorie.id"
+                                                ng-repeat="categorie in categories" ng-value="categorie.nom">
                                                 [[categorie.nom]]</option>
                                         </select>
                                     </div>

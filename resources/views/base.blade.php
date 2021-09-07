@@ -7,17 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image:src" content="assets/images/index-meta.jpg">
-    <meta property="og:image" content="assets/images/index-meta.jpg">
-    <meta name="twitter:title" content="Accueil">
+    <meta name="twitter:image:src" content="{{ asset('assets/images/index-meta.jpg') }}">
+    <meta property="og:image" content="{{ asset('assets/images/index-meta.jpg') }}">
+    <meta name="twitter:title" content="{{config('app.name')}} - @yield('twitter-title')">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="shortcut icon" href="assets/images/mediumsquarelogo.jpg" type="image/x-icon">
-    <meta name="description" content="Plateforme de publication des maux de la société sénégalaise.
-Lisez les récits, le vécu des citoyens au quotidien pour lutter contre l'abus de pouvoir et les magouilles dans nos services et administrations.
-Bambo GROUP SN.">
+    <link rel="shortcut icon" href="{{ asset('assets/images/mediumsquarelogo.jpg') }}" type="image/x-icon">
+    <meta name="description" content="@yield('description')'">
 
 
-    <title>@yield('title') - Niaxtu</title>
+    <title>@yield('title') - {{config('app.name')}}</title>
     <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons2/mobirise2.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap-grid.min.css') }}">
@@ -35,7 +33,7 @@ Bambo GROUP SN.">
     </noscript>
     <link rel="preload" as="style" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}" type="text/css">
-    <meta name="theme-color" content="#1574bb">
+    <meta name="theme-color" content="#DD9016">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <script src="{{ asset('sw-connect.js') }}"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -73,7 +71,8 @@ Bambo GROUP SN.">
 
             <a class="full-link" href="{{route('home_route')}}">
                 <div class="menu-top card-wrapper mbr-fonts-style mbr-white display-7">
-                    Le levier du développement @auth / <b>{{ Auth::user()->name }}</b> /
+                   @guest <span>Le levier du développement</span> / @endguest
+                    @auth <b><a style="color: white;" href="{{ route('account_route') }}">{{ Auth::user()->name }}</a></b> /
                     <form method="POST" style="display: inline;" action="{{route('logout_route')}}">
                         @method('post')
                         @csrf
@@ -179,6 +178,7 @@ Bambo GROUP SN.">
     <script src="{{ asset('angular/controllers/user.controller.js') }}"></script>
     <script src="{{ asset('angular/controllers/post.new.controller.js') }}"></script>
     <script src="{{asset('angular/controllers/my.posts.controller.js')}}"></script>
+    <script src="{{ asset('angular/controllers/post.show.controller.js') }}"></script>
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
                 class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
 </body>
