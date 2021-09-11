@@ -13,7 +13,9 @@
             <div class="row justify-content-center">
                 <div class="card col-12 col-lg-10">
                     <div class="card-wrapper">
-                        <div class="card-box align-center"></div>
+                        <div class="card-box align-center">
+                            <a class="d-none d-lg-block" style="font-weight: bold; font-size: 22px;" href="{{ route('home_route') }}">Accueil</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -23,13 +25,15 @@
     <section data-bs-version="5.1" class="content3 personam4_content3 cid-sI5Mq5Rfkf" id="content03-1m">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="card-img">
+                <div class="col-lg-6 pb-0">
+                    <span class="display-5">[[ post.categorie.nom ]]</span>
+                    <hr>
+                    {{-- <div class="card-img">
                         <img src="/assets/images/categories/[[post.categorie.image]]" alt="[[post.categorie.image]]">
-                    </div>
+                    </div> --}}
                 </div>
-                <div class="col-lg-6 py-4 align-right">
-                    <p class="mbr-text pb-1 align-left mbr-fonts-style display-4">
+                <div class="col-lg-6 py-1 align-right">
+                    <p class="mbr-text pb-1 align-left mbr-fonts-style display-4" style="font-size: 20px;">
                         [[post.post]]</p>
                         <div class="align-right">
                             <span
@@ -57,10 +61,10 @@
                         <div class="col-12">
                             <ul style="font-style: italic; list-style-type: none;">
                                 <li ng-repeat="comment in post.comments">
-                                    <div class="align-left" style="border-left: 3px solid #DFDFDF; padding-left: 3px;">[[comment.comment]] <br>
+                                    <div class="align-left" style="border-left: 3px solid #DFDFDF; padding-left: 3px; font-size: 20px;">[[comment.comment]] <br>
                                         <div class="align-right">
                                             <span
-                                                style="font-size: 13px; font-weight: bold; color: #1574bb;">[[post.created_at|date:'dd MMM yyyy - HH:mm']] <span style="color: #E87C2B">par
+                                                style="font-size: 13px; font-weight: bold; color: #1574bb;">[[comment.created_at|date:'dd MMM yyyy - HH:mm']] <span style="color: #E87C2B">par
                                                     <b>anonyme</b></span></span>
                                         </div>
                                     </div>
