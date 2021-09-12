@@ -63,6 +63,8 @@ Route::resource('user', UserController::class,
     'only'=>['index','store','update']
 ]);
 
+Route::get('post/{post:id}/similar','App\Http\Controllers\PostController@loadSimilarPosts');
+
 Route::resource('post', PostController::class,
 [
     'only'=>['store','update','show','destroy']
@@ -73,22 +75,20 @@ Route::get('/categorie','App\Http\Controllers\CategorieController@load');
 Route::post('/like/{id}',function($id) {
     $like = new Like();
     $like->post_id = $id;
-    if(Auth::guest()) {
-        return ['error'=>true,'message'=>"Vous devez être connecté pour aimer ce commentaire"];
+    if(Auth::user()) {
+        $like->user_id = Auth::user()->id;
     }
-    $like->user_id = Auth::user()->id;
     $like->save();
     return ['error'=>false];
 });
 
 Route::post('/comment/{id}',function ($id, Request $request) {
-    if(Auth::guest()) {
-        return ['error'=>true,'message'=>"Vous devez être connecté pour laisser un commentaire..."];
-    }
     Validator::validate($request->all(),
     ['comment'=>'required']);
     $comment = new Comment($request->all());
-    $comment->user_id = Auth::user()->id;
+    if(Auth::user()) {
+        $comment->user_id = Auth::user()->id;
+    }
     $comment->post_id = $id;
     $comment->save();
     return ['error'=>false];

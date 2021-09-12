@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 pb-0">
-                    <span class="display-5">[[ post.categorie.nom ]]</span>
+                    <span class="display-5" style="color: #DC8F1D;">[[ post.categorie.nom ]]</span>
                     <hr>
                     {{-- <div class="card-img">
                         <img src="/assets/images/categories/[[post.categorie.image]]" alt="[[post.categorie.image]]">
@@ -91,6 +91,65 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row post-list">
+            <div class="col-12 p-2">
+                <hr>
+                <hr>
+                <hr>
+                <h4>D'autres posts dans la même catégorie...</h4>
+                <hr>
+                <hr>
+                <hr>
+            </div>
+            <div class="col-12" ng-if="similarPosts|isEmpty">
+                <div class="card">
+                    <div class="card-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <p class="mbr-text text-center pt-2 mbr-fonts-style display-7">
+                                                Aucun contenu n'est encore disponible !
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" ng-repeat="postItem in similarPosts">
+                <a href="/post/[[postItem.id]]">
+                    <div class="post">
+                        <div class="title">[[postItem.categorie.nom]]</div>
+                        <div class="time">[[postItem.created_at|date:'dd MMM yyyy']] par anonyme</div>
+                        <div class="content">
+                            [[postItem.post|truncate:150:'...']] <span class="read-more">Lire la suite</span>
+                        </div>
+                        <div class="interactions">
+                            <ul class="pb-0" style="margin-bottom: 5px;">
+                                <li style="display: inline">
+                                    [[postItem.likes_count]] <i class="mobi-mbri mobi-mbri-hearth mbr-iconfont"></i> &nbsp;
+                                    &nbsp;
+                                </li>
+                                <li style="display: inline">
+                                    [[postItem.comments_count]] <i class="mobi-mbri mobi-mbri-chat mbr-iconfont"></i> &nbsp;
+                                    &nbsp;
+                                </li>
+                                <li style="display: inline">
+                                    [[postItem.clicks_count]] <i class="mobi-mbri mobi-mbri-cursor-click mbr-iconfont"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>

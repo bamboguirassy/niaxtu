@@ -23,6 +23,9 @@ app.factory('PostService', ($http) => {
         },
         comment: (id, comment) => {
             return $http.post(`/comment/${id}`, comment);
+        },
+        findSimilars: (id) => {
+            return $http.get(`/post/${id}/similar`);
         }
     };
 })

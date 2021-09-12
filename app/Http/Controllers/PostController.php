@@ -132,4 +132,9 @@ class PostController extends Controller
         $post = Post::with(['categorie','user','comments'])->withCount(['clicks','likes','comments'])->find($id);
         return $post;
     }
+
+    public function loadSimilarPosts(Post $post) {
+        $posts = Post::with('categorie')->withCount(['clicks','comments','likes'])->where('categorie_id',$post->categorie->id)->where('id','<>',$post->id)->orderby('created_at','desc')->take(10)->get();
+        return $posts;
+    }
 }

@@ -1,0 +1,36 @@
+.post-list {
+    background-color: #EEEEEE;
+}
+.post-list .post {
+    background-color: white;
+    font-size: 20px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.post .title {
+    font-weight: bold;
+    color: #DC8F1D;
+    border-bottom: 2px solid gray;
+}
+.post .time {
+    font-weight: bold;
+    font-size: 15px;
+    color: #1574BB;
+}
+.post .content {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: #000;
+}
+.content .read-more {
+    color: #DC8F1D;
+    text-decoration: underline;
+}
+.post .interactions {
+    color: #DC8F1D;
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 5px;
+}
