@@ -75,9 +75,7 @@
                         <div class="right-content">
                             <div class="buttons-wrap w-100 float-right">
                                 <div class="mbr-section-btn align-center">
-                                    <a class="btn btn-md btn-white display-4" href="#" data-toggle="modal"
-                                        data-bs-toggle="modal" data-target="#mbr-popup-19"
-                                        data-bs-target="#mbr-popup-19">Publier un récit</a>
+                                    <a class="btn btn-md btn-white display-4" href="{{ route('post.new') }}">Publier un récit</a>
                                 </div>
                             </div>
                         </div>
