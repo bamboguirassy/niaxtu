@@ -39,8 +39,8 @@
     }
 
     .event-list img {
-        width: 77px;
-        height: 77px
+        width: 100px;
+        height: 100px
     }
 
     .event-list h4 {
