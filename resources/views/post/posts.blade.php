@@ -26,7 +26,7 @@ Vous pouvez mettre à jour certaines publications ou de les retirer définitivem
             </div>
         </div>
     </section>
-
+    {!! Adsense::ads('responsive') !!}
     <section data-bs-version="5.1" class="info3 cid-sI4to9cx9b" id="info3-11">
         <div class="container">
             <div class="row justify-content-center">
@@ -41,27 +41,6 @@ Vous pouvez mettre à jour certaines publications ou de les retirer définitivem
     </section>
 
     <section ng-repeat-start="post in posts" data-bs-version="5.1" class="article5 cid-sI4qKHMpnp" id="article06-w">
-        <ng-container ng-if="$index%5==1">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        {!! Adsense::ads('rectangle') !!}
-                    </div>
-                </div>
-            </div>
-            <section data-bs-version="5.1" class="info3 cid-sI4u1CZtUm" id="info3-12">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="card col-12 col-lg-10">
-                            <div class="card-wrapper">
-                                <div class="card-box align-center">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </ng-container>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="card col-12 col-lg">
@@ -222,4 +201,5 @@ Vous pouvez mettre à jour certaines publications ou de les retirer définitivem
         </div>
     </div>
 </div>
+{!! Adsense::ads('responsive') !!}
 @endsection

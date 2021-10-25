@@ -126,9 +126,6 @@
                     <div class="registration-right">
                         <div class="event-list">
                             <ng-container ng-repeat="post in posts" ng-click="show(post.id)">
-                                <div class="card flex-row" ng-if="$index%5==1">
-                                    {!! Adsense::ads('responsive') !!}
-                                </div>
                                 <div class="card flex-row">
                                 {{-- <a href="/post/[[post.id]]" style="display: inline-block;"> --}}
                                     <img class="card-img-left img-fluid mr-0" ng-src="/uploads/post/images/[[post.image]]" />

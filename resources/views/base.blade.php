@@ -122,9 +122,9 @@
                                 href="{{route('posts_route')}}" data-bs-auto-close="outside" aria-expanded="false">Mes
                                 publications</a></li>
                         @endauth
-                        {{-- <li class="nav-item"><a class="nav-link link text-primary show display-4"
+                        <li class="nav-item"><a class="nav-link link text-primary show display-4"
                                 href="{{route('contacts_route')}}" data-bs-auto-close="outside"
-                                aria-expanded="false">Contacts</a></li> --}}
+                                aria-expanded="false">Contacts</a></li>
                     </ul>
                 </div>
             </div>

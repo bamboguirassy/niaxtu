@@ -100,7 +100,7 @@
                 </div>
             </div>
         </section>
-        {!! Adsense::ads('rectangle') !!}
+        {!! Adsense::ads('responsive') !!}
         <section class="mt-2">
             <div class="container-fluid">
                 <div class="row post-list">
