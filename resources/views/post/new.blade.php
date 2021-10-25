@@ -1,4 +1,74 @@
-<div ng-controller="PostNewController" class="modal mbr-popup cid-sI4F2yYYO0 fade" tabindex="-1" role="dialog"
+@extends('base')
+
+@section('title',"Publier un post")
+
+@section("description","Créer une nouvelle publication et la diffuser au près des internautes... ")
+
+@section('twitter-title',"Publication d'un nouveau niaxtu")
+
+@section("body")
+<div class="container-fluid" style="margin-top: 80px;" ng-controller="PostNewController">
+    <div class="row">
+        <div class="col-12">
+            <p class="mbr-text mbr-fonts-style display-7">
+                Rédigez et publiez votre témoignage en sélectionnant une catégorie d'abord.<br>Votre nom
+                n'apparaitra pas sur la publication.<br>Toutes les publications sont anonymes.</p>
+
+            <div>
+                <div class="form-wrapper">
+                    <!--Formbuilder Form-->
+                    <form enctype="multipart/form-data" name="form" action="{{ route('post.store') }}" class="mbr-form form-with-styler"
+                        data-form-title="postForm" method="post">
+                        @csrf
+                        @method('post')
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger col-12">
+                            {{$error}}
+                        </div>
+                        @endforeach
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
+                        <div class="dragArea">
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="categorie">
+                                <label for="categorie-mbr-popup-19"
+                                    class="form-control-label mbr-fonts-style display-7"><strong>Catégorie</strong></label>
+                                <select ng-model="post.categorie_id" name="categorie_id" data-form-field="categorie"
+                                    class="form-control display-7" id="categorie-mbr-popup-19">
+                                    <option value="">---Selectionner une valeur---</option>
+                                    <option ng-repeat="categorie in categories" ng-value="categorie.id">
+                                        [[categorie.nom]]</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="post">
+                                <label for="post-mbr-popup-19"
+                                    class="form-control-label mbr-fonts-style display-7"><strong>Publication</strong></label>
+                                <textarea ng-model="post.post" name="post"
+                                    placeholder="Rédiger votre publication ici" data-form-field="post"
+                                    class="form-control display-7" required="required"
+                                    id="post-mbr-popup-19"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                  <label for="image" class="form-label">Ajouter une image</label>
+                                  <input type="file"
+                                    class="form-control" name="image" id="image" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="col input-group-btn">
+                                <div class="d-grid gap-2">
+                                    <button ng-disabled="form.$invalid" type="submit"
+                                        class="btn btn-primary display-4">Publier</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--Formbuilder Form-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+<div  class="modal mbr-popup cid-sI4F2yYYO0 fade" tabindex="-1" role="dialog"
     data-overlay-color="#000000" data-overlay-opacity="0.8" id="mbr-popup-19" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -14,47 +84,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="mbr-text mbr-fonts-style display-7">
-                    Rédigez et publiez votre témoignage en sélectionnant une catégorie d'abord.<br>Votre nom
-                    n'apparaitra pas sur la publication.<br>Toutes les publications sont anonymes.</p>
 
-                <div>
-                    <div class="form-wrapper">
-                        <!--Formbuilder Form-->
-                        <form name="form" ng-submit="create()" class="mbr-form form-with-styler"
-                            data-form-title="postForm">
-                            <div ng-if="validationError" data-form-alert-danger="" class="alert alert-danger col-12">
-                                [[validationError.message]]
-                            </div>
-                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"></div>
-                            <div class="dragArea">
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="categorie">
-                                    <label for="categorie-mbr-popup-19"
-                                        class="form-control-label mbr-fonts-style display-7"><strong>Catégorie</strong></label>
-                                    <select ng-model="post.categorie_id" name="categorie_id" data-form-field="categorie"
-                                        class="form-control display-7" id="categorie-mbr-popup-19">
-                                        <option value="">---Selectionner une valeur---</option>
-                                        <option ng-repeat="categorie in categories" ng-value="categorie.id">
-                                            [[categorie.nom]]</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="post">
-                                    <label for="post-mbr-popup-19"
-                                        class="form-control-label mbr-fonts-style display-7"><strong>Publication</strong></label>
-                                    <textarea ng-model="post.post" name="post"
-                                        placeholder="Rédiger votre publication ici" data-form-field="post"
-                                        class="form-control display-7" required="required"
-                                        id="post-mbr-popup-19"></textarea>
-                                </div>
-                                <div class="col input-group-btn">
-                                    <button ng-disabled="form.$invalid" type="submit"
-                                        class="btn btn-primary display-4">Publier</button>
-                                </div>
-                            </div>
-                        </form>
-                        <!--Formbuilder Form-->
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6cadd819a6415b190ae2704ced6e6c8b",
+    "content-hash": "70a5b3f288b74ab5a8de033003f076bf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1352,6 +1352,74 @@
                 }
             ],
             "time": "2021-01-18T20:58:21+00:00"
+        },
+        {
+            "name": "martinbutt/laravel-adsense",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/martinbutt/laravel-adsense.git",
+                "reference": "f2e76d3c2160e02ec071ec896580d69c95a9bf54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/martinbutt/laravel-adsense/zipball/f2e76d3c2160e02ec071ec896580d69c95a9bf54",
+                "reference": "f2e76d3c2160e02ec071ec896580d69c95a9bf54",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/view": "^6.0||^7.0||^8.0",
+                "php": "^7.2||^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MartinButt\\Laravel\\Adsense\\Providers\\AdsenseServiceProvider"
+                    ],
+                    "aliases": {
+                        "Adsense": "MartinButt\\Laravel\\Adsense\\Facades\\AdsenseFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MartinButt\\Laravel\\Adsense\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Butt",
+                    "homepage": "https://www.martinbutt.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Crypto Technology srl",
+                    "email": "admin@cryptotech.srl",
+                    "homepage": "https://cryptotech.srl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Display Adsense ads easily in Laravel 6.x, 7.x and 8.x",
+            "keywords": [
+                "ads",
+                "adsense",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/martinbutt/laravel-adsense/issues",
+                "source": "https://github.com/martinbutt/laravel-adsense/"
+            },
+            "time": "2021-08-20T21:38:49+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4981,6 +5049,88 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "yoeunes/toastr",
+            "version": "v1.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yoeunes/toastr.git",
+                "reference": "051bf23958819e3588761d0c0e4cca24a4e67896"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yoeunes/toastr/zipball/051bf23958819e3588761d0c0e4cca24a4e67896",
+                "reference": "051bf23958819e3588761d0c0e4cca24a4e67896",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/session": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yoeunes\\Toastr\\ToastrServiceProvider"
+                    ],
+                    "aliases": {
+                        "Toastr": "Yoeunes\\Toastr\\Facades\\Toastr"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yoeunes\\Toastr\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Younes Khoubza",
+                    "email": "younes.khoubza@gmail.com",
+                    "homepage": "https://github.com/yoeunes",
+                    "role": "Developer"
+                }
+            ],
+            "description": "toastr.js flush notifications for Laravel 5, 6, 7 and Lumen",
+            "homepage": "https://github.com/yoeunes/toastr",
+            "keywords": [
+                "alerts",
+                "flush",
+                "flush messages",
+                "flush notifications",
+                "laravel",
+                "laravel 5",
+                "laravel 6",
+                "laravel 7",
+                "laravel flush notifications",
+                "laravel notification",
+                "laravel notify",
+                "laravel toastr",
+                "lumen",
+                "messages",
+                "notification",
+                "php",
+                "toastr",
+                "toastr js",
+                "yoeunes"
+            ],
+            "support": {
+                "docs": "https://github.com/yoeunes/toastr/README.md",
+                "email": "younes.khoubza@gmail.com",
+                "issues": "https://github.com/yoeunes/toastr/issues",
+                "source": "https://github.com/yoeunes/toastr"
+            },
+            "time": "2020-12-29T09:20:58+00:00"
         }
     ],
     "packages-dev": [

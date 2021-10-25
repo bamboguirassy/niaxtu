@@ -31,4 +31,8 @@ app.controller('PostPublicListControler', ($scope, $http, PostService, Categorie
     $scope.load('');
     $scope.findCategories();
 
+    $scope.show = (id) => {
+        window.location.href='/post/'+id;
+    }
+
 });

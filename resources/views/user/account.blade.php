@@ -47,7 +47,7 @@ Si vous décidez d'être invisible, votre nom n'apparaitra pas sur vos publicati
         </div>
     </div>
 </section>
-
+{!! Adsense::ads('rectangle') !!}
 <section class="form cid-sI4dkjQpgr" id="formbuilder-s">
     <div class="container">
         <div class="row">
@@ -151,4 +151,5 @@ Si vous décidez d'être invisible, votre nom n'apparaitra pas sur vos publicati
         </div>
     </div>
 </section>
+{!! Adsense::ads('rectangle') !!}
 @endsection

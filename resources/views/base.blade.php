@@ -62,15 +62,15 @@
     <meta name="apple-mobile-web-app-title" content="">
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
+    {!! Adsense::javascript() !!}
 </head>
-
 <body>
     <section data-bs-version="5.1" class="menu popup-btn-cards cid-sI3PlPU1N8" once="menu" id="menu2-2"
         data-sortbtn="btn-primary">
         <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
             <div class="mbr-overlay" style="opacity: 1;"></div>
 
-            <a class="full-link" href="{{route('home_route')}}">
+            {{-- <a class="full-link" href="{{route('home_route')}}">
                 <div class="menu-top card-wrapper mbr-fonts-style mbr-white display-7">
                    @guest <span>Le levier du développement</span> / @endguest
                     @auth <b><a style="color: white;" href="{{ route('account_route') }}">{{ Auth::user()->name }}</a></b> /
@@ -81,7 +81,7 @@
                     </form>
                     @endauth
                 </div>
-            </a>
+            </a> --}}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <div class="left-menu">
@@ -102,11 +102,11 @@
                         <span class="navbar-logo">
                             <a href="{{route('home_route')}}">
                                 <img src="{{ asset('assets/images/mediumsquarelogo.jpg') }}" alt=""
-                                    style="height: 3.8rem;">
+                                    style="height: 2rem;">
                             </a>
                         </span>
                         <span class="navbar-caption-wrap"><a
-                                class="navbar-caption text-secondary text-primary display-5"
+                                class="navbar-caption text-secondary text-primary display-7"
                                 href="{{route('home_route')}}">Ñaxtu</a></span>
                     </div>
                 </div>
@@ -122,9 +122,9 @@
                                 href="{{route('posts_route')}}" data-bs-auto-close="outside" aria-expanded="false">Mes
                                 publications</a></li>
                         @endauth
-                        <li class="nav-item"><a class="nav-link link text-primary show display-4"
+                        {{-- <li class="nav-item"><a class="nav-link link text-primary show display-4"
                                 href="{{route('contacts_route')}}" data-bs-auto-close="outside"
-                                aria-expanded="false">Contacts</a></li>
+                                aria-expanded="false">Contacts</a></li> --}}
                     </ul>
                 </div>
             </div>
@@ -143,6 +143,11 @@
     </section>
 
     @yield('body')
+@auth
+<a style="position: fixed; top: 40%; right: 20px;" href="{{ route('post.new') }}" class="btn btn-primary btn-rounded">
+    <span class="mobi-mbri mobi-mbri-edit mbr-iconfont"></span>
+</a>
+@endauth
 
     <section data-bs-version="5.1" class="footer1 cid-sI3PNqz98f" once="footers" id="footer01-3"
         data-sortbtn="btn-primary">
@@ -180,7 +185,8 @@
     <script src="{{ asset('angular/controllers/post.new.controller.js') }}"></script>
     <script src="{{asset('angular/controllers/my.posts.controller.js')}}"></script>
     <script src="{{ asset('angular/controllers/post.show.controller.js') }}"></script>
-    <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
+    <div id="scrollToTop" class="scrollToTop mbr-arrow-up">
+        <a style="text-align: center;"><i
                 class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
 </body>
 

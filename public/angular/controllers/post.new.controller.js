@@ -1,4 +1,4 @@
-app.controller('PostNewController', ($scope, PostService, CategorieService) => {
+app.controller('PostNewController', ($scope, CategorieService) => {
     $scope.post = {};
     $scope.categories = [];
     $scope.validationError = null;
@@ -16,15 +16,4 @@ app.controller('PostNewController', ($scope, PostService, CategorieService) => {
     }
 
     $scope.findCategories();
-
-    $scope.create = () => {
-        $scope.resetErrors();
-        PostService.create($scope.post)
-            .success((response) => {
-                if(!response.error) {
-                    $scope.post = {};
-                    window.location.href=`/post/${response.data.id}`;
-                }
-            }).error(err => $scope.validationError = err);
-    }
 });

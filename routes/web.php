@@ -31,9 +31,9 @@ Route::get('/guide', function () {
     return view('guide');
 })->name('guide_route');
 
-Route::get('/account', function () {
+Route::get('account', function () {
     return view('user.account');
-})->name('account_route');
+})->name('account_route')->middleware('auth');
 
 Route::get('/post/lazy-load/{categorie?}','App\Http\Controllers\PostController@loadPosts');
 
@@ -62,6 +62,10 @@ Route::resource('user', UserController::class,
 [
     'only'=>['index','store','update']
 ]);
+
+Route::get('new-post',function() {
+    return view('post.new');
+})->name('post.new')->middleware('auth');
 
 Route::get('post/{post:id}/similar','App\Http\Controllers\PostController@loadSimilarPosts');
 

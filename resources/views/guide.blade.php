@@ -29,7 +29,7 @@
         </div>
     </div>
 </section>
-
+{!! Adsense::ads('rectangle') !!}
 <section data-bs-version="5.1" class="features23 cid-sI495iG2P3" id="features24-i">
     <div class="container">
         <div class="row justify-content-center">
@@ -95,4 +95,5 @@
         </div>
     </div>
 </section>
+{!! Adsense::ads('rectangle') !!}
 @endsection

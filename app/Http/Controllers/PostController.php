@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Click;
 use App\Models\Post;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -17,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -46,8 +48,21 @@ class PostController extends Controller
         $data = $request->all();
         $data['user_id'] = auth()->user()->id;
         $data['visible'] = true;
-        $post = Post::create($data);
-        return ['error'=>false,'data'=>$post];
+        DB::beginTransaction();
+        try {
+            if($request->has('image')) {
+                $filename = uniqid().'.'.$request->file('image')->extension();
+                $request->file('image')->storeAs('post/images',$filename);
+                $data['image'] = $filename;
+                $post = Post::create($data);
+            }
+            DB::commit();
+        } catch(Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
+        toastr()->success("Votre post est publié avec succès !");
+        return redirect()->route('post.show',compact('post'));
     }
 
     /**
@@ -94,7 +109,7 @@ class PostController extends Controller
             'post'=>'required'
         ]);
         if($post->update($request->only(['categorie','post']))) {
-            return ['error'=>false]; 
+            return ['error'=>false];
         } else {
             return ['error'=>true,'message'=>'Une erreur est survenue lors de la suppression du post'];
         }

@@ -41,11 +41,31 @@ Vous pouvez mettre à jour certaines publications ou de les retirer définitivem
     </section>
 
     <section ng-repeat-start="post in posts" data-bs-version="5.1" class="article5 cid-sI4qKHMpnp" id="article06-w">
+        <ng-container ng-if="$index%5==1">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        {!! Adsense::ads('rectangle') !!}
+                    </div>
+                </div>
+            </div>
+            <section data-bs-version="5.1" class="info3 cid-sI4u1CZtUm" id="info3-12">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="card col-12 col-lg-10">
+                            <div class="card-wrapper">
+                                <div class="card-box align-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </ng-container>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="card col-12 col-lg">
                     <div class="card-wrapper align-left">
-
                         <p class="mbr-text mbr-fonts-style display-7">
                             [[post.post|truncate:200:'...']]
                             &nbsp;<a href="/post/[[post.id]]" class="text-primary"><strong>Lire la
@@ -89,7 +109,7 @@ Vous pouvez mettre à jour certaines publications ou de les retirer définitivem
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="image-wrapper">
-                        <img src="/assets/images/categories/[[post.categorie.image]]" alt="[[post.categorie.nom]]">
+                        <img src="/uploads/post/images/[[post.image]]" alt="[[post.categorie.nom]]">
                     </div>
                 </div>
             </div>

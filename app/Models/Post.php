@@ -14,7 +14,8 @@ class Post extends Model
         'post',
         'categorie_id',
         'visible',
-        'user_id'
+        'user_id',
+        'image'
     ];
 
     /**
@@ -35,11 +36,11 @@ class Post extends Model
     public function comments() {
         return $this->hasMany(Comment::class);
     }
-    
+
     public function clicks() {
         return $this->hasMany(Click::class);
     }
-    
+
     public function likes() {
         return $this->hasMany(Like::class);
     }
