@@ -7,9 +7,9 @@
 @section('twitter-title',"Publication d'un nouveau niaxtu")
 
 @section("body")
-<div class="container-fluid" style="margin-top: 80px;" ng-controller="PostNewController">
+<div class="container container-fluid" style="margin-top: 80px;" ng-controller="PostNewController">
     <div class="row">
-        <div class="col-12">
+        <div class="col-10 mx-auto">
             <p class="mbr-text mbr-fonts-style display-7">
                 Rédigez et publiez votre témoignage en sélectionnant une catégorie d'abord.<br>Votre nom
                 n'apparaitra pas sur la publication.<br>Toutes les publications sont anonymes.</p>
