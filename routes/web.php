@@ -31,6 +31,10 @@ Route::get('/guide', function () {
     return view('guide');
 })->name('guide_route');
 
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
+
 Route::get('account', function () {
     return view('user.account');
 })->name('account_route')->middleware('auth');
