@@ -156,7 +156,7 @@
                                                         class="mobi-mbri mobi-mbri-cursor-click mbr-iconfont"></i>
                                                 </li>
                                                 <li style="display: inline; padding-left: 30px;">
-                                                    <a class="float-right" href="/post/@{{ post . id }}"><b>Lire la suite</b></a>
+                                                    <a class="float-right" href="/post/[[post.id]]"><b>Lire la suite</b></a>
                                                 </li>
                                             </ul>
                                         </div>
